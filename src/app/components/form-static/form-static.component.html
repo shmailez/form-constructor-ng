@@ -1,0 +1,16 @@
+<div class="formContainer" *ngFor="let form of forms; let i = index">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+      <div class="formInputs" *ngFor="let config of formConfig">
+        <label>{{config.label}}</label>
+        <input [type]="config.type" [formControlName]="config.name">
+      </div>
+      <button type="submit">Отправить</button>
+    </form>
+
+    <div class="bottom-button">
+        <button (click)="addForm()">Добавить форму</button>
+        <button (click)="deleteForm(i)">Удалить форму</button>
+    </div>
+    
+</div>
+  
